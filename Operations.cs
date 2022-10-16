@@ -33,6 +33,7 @@ namespace WiselySplit
                 
                 using (SqlConnection conn = dbConnect(Variables.connStr))
                 {
+                    #add configuration file or check sql statement for sql injection and unauthorized updated to db
                     string createUser = "INSERT INTO [dbo].[Login] (uname, upass, Email)  VALUES ('" + user.Name + "',CONVERT(VARBINARY(25),'" + passwordHash + "'),'" + user.Email + "')";
                     string getUserId = "SELECT Id FROM [dbo].[Login] where uname='" + user.Name + "' AND upass=CONVERT(VARBINARY(25),'" + passwordHash + "')";
                     SqlCommand addUser = new SqlCommand(createUser, conn);
