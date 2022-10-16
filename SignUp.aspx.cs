@@ -68,6 +68,7 @@ namespace WiselySplit
                     }
                     else
                     {
+                    #check fir input before updating in db
                         List<KeyValuePair<string, string>> userDetails = new List<KeyValuePair<string, string>>();
                         userDetails.Add(new KeyValuePair<string, string>("uname", unameTxtBox.Text));
                         userDetails.Add(new KeyValuePair<string, string>("upass", upassTxtBox.Text));
