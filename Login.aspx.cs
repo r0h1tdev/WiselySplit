@@ -17,7 +17,10 @@ namespace WiselySplit
         }
 
         protected void loginBtn_Click(object sender, EventArgs e)
+
         {#add try catch for error handling
+        {
+        #add try catch block and error handling for input validation
             if ((unameTxtBox.Text == null || unameTxtBox.Text == "") || (upassTxtBox.Text == null || upassTxtBox.Text == ""))
             {
                 invalidCredLbl.Visible = false;
