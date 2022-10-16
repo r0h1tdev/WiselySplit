@@ -12,6 +12,7 @@ namespace WiselySplit
     {
         protected void Application_Start(object sender, EventArgs e)
         {
+        # create a utility file and include the js in there and take a reference from that file.
             string jquerystr = "1.7.1";
             ScriptManager.ScriptResourceMapping.AddDefinition("jquery", new ScriptResourceDefinition
             {
