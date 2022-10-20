@@ -1,0 +1,80 @@
+#include <iostream>
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define ll long long int
+#define ld long double
+#define MAX 200010
+#define MOD 1000000007
+#define INF 1e15
+#define fast ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define pi 3.14159265358979323846
+#define endl "\n"
+#define coutflg if(flg){cout << "YES\n";}else{cout << "NO\n";}
+#define coutyes cout << "YES\n";
+#define coutno cout << "NO\n";
+#define flush fflush(stdout);
+#define fixedprec cout << fixed << setprecision(18);
+
+void solve(){
+    ll n,k;
+    cin >> n >> k;
+    ll p[k];
+    ll t[k];
+    for(ll i=0;i<k;i++){
+    	cin >> p[i];
+    }
+    for(ll i=0;i<k;i++){
+    	cin >> t[i];
+    }
+    priority_queue<pair<ll,ll>, vector<pair<ll,ll>>, greater<pair<ll,ll>>> q;
+    ll dist[n+1];
+    for(ll i=1;i<=n;i++){
+    	dist[i] = INF;
+    }
+    for(ll i=0;i<k;i++){
+    	q.push({t[i],p[i]});
+    	dist[p[i]] = t[i];
+    }
+    while(!q.empty()){
+    	ll s = q.top().second;
+    	ll d = q.top().first;
+    	q.pop();
+    	if(s+1<=n){
+    		if(dist[s+1]>dist[s]+1){
+    			dist[s+1] = dist[s]+1;
+    			q.push({dist[s+1],s+1});
+    		}
+    	}
+    	if(s-1>=0){
+    		if(dist[s-1]>dist[s]+1){
+    			dist[s-1] = dist[s]+1;
+    			q.push({dist[s-1],s-1});
+    		}
+    	}
+    }
+    for(ll i=1;i<=n;i++){
+    	cout << dist[i] << " ";
+    }
+    cout << endl;
+}
+
+int main(){
+
+    #ifndef ONLINE_JUDGE
+        // for getting input from input.txt
+        freopen("input.txt", "r", stdin);
+        // for writing output to output.txt
+        // freopen("output.txt", "w", stdout);
+    #endif
+
+    fast
+    ll t,q;
+    q = 1;
+    cin >> q;
+    for(t=1;t<=q;t++){
+        // cout << "Case #" << t << ": ";
+        solve();
+    }
+}
