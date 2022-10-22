@@ -1,0 +1,52 @@
+#include <iostream>
+#include <bits/stdc++.h>
+
+#define ll long long int
+#define ld long double
+
+using namespace std;
+
+int main(){
+
+    ll t;
+    cin >> t;
+    while(t--){
+
+        ll a,b,c;
+        cin >> a >> b >> c;
+
+        ll i,ans;
+        ans = 0;
+
+        vector<ll> s;
+        s.push_back(a);
+        s.push_back(b);
+        s.push_back(c);
+        sort(s.begin(),s.end());
+
+        a=s[0];
+        b=s[1];
+        c=s[2];
+
+        if(a<(c-b)){
+            ans = ans + a;
+            ans = ans + b;
+        }
+        else{
+            a = a - (c-b);
+            ans = ans + (c-b);
+            c = b;
+
+            ans = ans+a;
+            b = b-(a/2);
+            ans = ans + b;
+
+            if(a%2!=0){
+                ans = ans - 1;
+            }
+        }
+
+        cout << ans << endl;
+
+    }
+}
