@@ -1,0 +1,41 @@
+#include <iostream>
+#include <bits/stdc++.h>
+
+#define ll long long int
+
+using namespace std;
+
+int main()
+{
+
+    ll q;
+    cin >> q;
+
+    while(q--){
+
+        ll n,m,i;
+        cin >> n >> m;
+
+        ll sum = 0;
+        ll j;
+
+        j = n/m;
+
+        ll j1 = j/10;
+        ll j2 = j%10;
+
+        for(i=1;i<=10;i++){
+            sum = sum + (m*i)%10;
+        }
+
+        sum = sum*j1;
+
+        for(i=1;i<=j2;i++){
+            sum = sum + (m*i)%10;
+        }
+
+        cout << sum << endl;
+
+    }
+
+}
