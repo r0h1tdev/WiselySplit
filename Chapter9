@@ -1,0 +1,114 @@
+#include <iostream>
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define ll long long int
+
+int main(){
+
+    ll m,i,a1;
+    cin >> m;
+
+    vector<ll> p;
+    vector<ll> n;
+    vector<ll> z;
+
+    for(i=0;i<m;i++){
+        cin >> a1;
+        if(a1>0){
+            p.push_back(a1);
+        }
+        else if(a1<0){
+            n.push_back(a1);
+        }
+        else{
+            z.push_back(a1);
+        }
+    }
+
+    if(p.size()>0){
+        if(n.size()%2!=0){
+            cout << n.size() << " ";
+            for(i=0;i<n.size();i++){
+                cout << n[i] << " ";
+            }
+            cout << endl;
+
+            cout << p.size() << " ";
+            for(i=0;i<p.size();i++){
+                cout << p[i] << " ";
+            }
+            cout << endl;
+
+            cout << z.size() << " ";
+            for(i=0;i<z.size();i++){
+                cout << z[i] << " ";
+            }
+            cout << endl;
+        }
+        else{
+            cout << n.size()-1 << " ";
+            for(i=0;i<n.size()-1;i++){
+                cout << n[i] << " ";
+            }
+            cout << endl;
+
+            cout << p.size() << " ";
+            for(i=0;i<p.size();i++){
+                cout << p[i] << " ";
+            }
+            cout << endl;
+
+            cout << z.size()+1 << " ";
+            for(i=0;i<z.size()+1;i++){
+                if(i==z.size()){
+                    cout << n[n.size()-1];
+                    break;
+                }
+                cout << z[i] << " ";
+            }
+            cout << endl;
+        }
+    }
+    else{
+        if(n.size()%2!=0){
+            cout << n.size()-2 << " ";
+            for(i=0;i<n.size()-2;i++){
+                cout << n[i] << " ";
+            }
+            cout << endl;
+
+            cout << 2 << " ";
+            cout << n[n.size()-1] << " " << n[n.size()-2] << " ";
+            cout << endl;
+
+            cout << z.size() << " ";
+            for(i=0;i<z.size();i++){
+                cout << z[i] << " ";
+            }
+            cout << endl;
+        }
+        else{
+            cout << n.size()-3 << " ";
+            for(i=0;i<n.size()-3;i++){
+                cout << n[i] << " ";
+            }
+            cout << endl;
+
+            cout << 2 << " ";
+            cout << n[n.size()-1] << " " << n[n.size()-2] << " ";
+            cout << endl;
+
+            cout << z.size()+1 << " ";
+            for(i=0;i<z.size()+1;i++){
+                if(i==z.size()){
+                    cout << n[n.size()-3];
+                    break;
+                }
+                cout << z[i] << " ";
+            }
+            cout << endl;
+        }
+    }
+}
