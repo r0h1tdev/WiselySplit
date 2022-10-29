@@ -1,0 +1,27 @@
+#include<iostream>
+#include<vector>
+#include<queue>
+#define INF int(1e7)
+using namespace std;
+#include<set>
+int main()
+{
+	int t;
+	cin >> t;
+	while (t--)
+	{
+		int n;
+		cin >> n;
+		set<int> s;
+		for (int i = 0; i < n; i++)
+		{
+			int a;
+			cin >> a;
+			s.insert(a);
+		}
+		if (s.size() == n)
+			cout << "YES\n";
+		else
+			cout << "NO\n";
+	}
+}
